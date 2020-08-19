@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoDir = path.resolve(dirname, '../..');
-const tscOutputDir = path.join(repoDir, '.tsc-output');
+const tscOutputDir = path.join(repoDir, '.tsc-output/@demiplane-dev');
 
 function tsc(args = []) {
   return spawn('tsc', args, { stdio: 'inherit' });

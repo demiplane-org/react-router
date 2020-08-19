@@ -18,6 +18,7 @@ import {
   Router,
   Routes,
   useBlocker,
+  useHistory,
   useHref,
   useInRouterContext,
   useLocation,
@@ -33,7 +34,7 @@ import {
   matchRoutes,
   matchPath,
   resolvePath
-} from 'react-router';
+} from '@demiplane-dev/react-router';
 
 function warning(cond: boolean, message: string): void {
   if (!cond) {
@@ -71,6 +72,7 @@ export {
   matchPath,
   resolvePath,
   useBlocker,
+  useHistory,
   useHref,
   useInRouterContext,
   useLocation,

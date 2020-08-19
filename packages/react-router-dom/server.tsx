@@ -8,7 +8,7 @@ import {
   createPath,
   parsePath
 } from 'history';
-import { Router } from 'react-router-dom';
+import { Router } from '@demiplane-dev/react-router-dom';
 
 /**
  * A <Router> that may not transition to any other location. This is useful
@@ -72,6 +72,12 @@ export function StaticRouter({
     block() {
       throw new Error(
         `You cannot use navigator.block() on the server because it is a stateless ` +
+          `environment.`
+      );
+    },
+    listen() {
+      throw new Error(
+        `You cannot use navigator.listen() on the server because it is a stateless ` +
           `environment.`
       );
     }

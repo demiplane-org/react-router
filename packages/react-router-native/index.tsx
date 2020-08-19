@@ -32,7 +32,7 @@ import {
   useParams,
   useResolvedPath,
   useRoutes
-} from 'react-router';
+} from '@demiplane-dev/react-router';
 import { State, To } from 'history';
 import URLSearchParams from '@ungap/url-search-params';
 

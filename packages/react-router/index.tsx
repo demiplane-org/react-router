@@ -43,11 +43,7 @@ function warning(cond: boolean, message: string): void {
 }
 
 const alreadyWarned: Record<string, boolean> = {};
-function warningOnce(
-  key: string,
-  cond: boolean,
-  message: string
-) {
+function warningOnce(key: string, cond: boolean, message: string) {
   if (!cond && !alreadyWarned[key]) {
     alreadyWarned[key] = true;
     warning(false, message);
@@ -69,7 +65,7 @@ function warningOnce(
  */
 export type Navigator = Omit<
   History,
-  'action' | 'location' | 'back' | 'forward' | 'listen'
+  'action' | 'location' | 'back' | 'forward'
 >;
 
 const LocationContext = React.createContext<LocationContextObject>({
@@ -441,6 +437,20 @@ export function useLocation(): Location {
   );
 
   return React.useContext(LocationContext).location as Location;
+}
+
+/**
+ * Returns the current history
+ */
+export function useHistory(): Navigator | undefined {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useHistory() may be used only in the context of a <Router> component.`
+  );
+
+  return React.useContext(LocationContext).navigator;
 }
 
 /**

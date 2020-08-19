@@ -11,7 +11,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "declaration": true,
-    "outDir": ".tsc-output",
+    "outDir": ".tsc-output/@demiplane-dev",
     "sourceMap": true,
     "skipLibCheck": true,
     "jsx": "react"
